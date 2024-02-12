@@ -1,0 +1,31 @@
+:root {
+    --color-beaver: #9e7f66;
+    --color-cod-gray: #111111;
+    --color-black: #000000;
+    --color-mirage: #17192b;
+    --color-ebony-clay: #242b37;
+    --color-shuttle-gray: #5c6779;
+    --color-dark-gray: #4c4c4c;
+    --color-white: #fff;
+    --color-border: rgba(151, 151, 151, 0.15);
+    --color-dark-blue-shaodw: rgba(56, 66, 85, 0.5);
+    --main-padding: 50px;
+    --main-transition: 0.4232s;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--color-cod-gray);
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-beaver);
+}
+
+@font-face {
+    font-family: "spartan";
+    src: url("./../fonts/LeagueSpartan-VariableFont_wght.ttf");
+}
+
+body {
+    font-family: "spartan";
+}

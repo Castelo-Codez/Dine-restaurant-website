@@ -1,0 +1,97 @@
+@mixin make-flex($x-axis, $y-axis) {
+    display: flex;
+    @if ($x-axis != false) {
+        justify-content: $x-axis;
+    }
+    @if ($y-axis != false) {
+        align-items: $y-axis;
+    }
+}
+
+@mixin Make-main-article(
+    $h2sizemobile: none,
+    $h2desktop: none,
+    $h2Clr: none,
+    $h2Font: none,
+    $h2Pattern: false,
+    $psizemobile: none,
+    $psizeDesktop: none,
+    $pClr: none,
+    $linkStatus: true,
+    $linkbg: none,
+    $linkAffterBg: none,
+    $linkClr: none,
+    $linkHoverClr: none
+) {
+    h2 {
+        color: $h2Clr;
+        font-weight: $h2Font;
+        font-size: $h2sizemobile;
+        margin: auto;
+        width: 80%;
+        @media (min-width: 991.5px) {
+            width: 100%;
+            margin: 0;
+            font-size: $h2desktop;
+        }
+        @if ($h2Pattern == true) {
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                background-image: url(/public/patterns/pattern-divide.svg);
+                width: 100px;
+                height: 8px;
+                top: -35px;
+                left: 0;
+                background-repeat: no-repeat;
+            }
+        }
+        & + p {
+            color: $pClr;
+            line-height: 1.8;
+            font-size: $psizemobile;
+            @media (min-width: 991.5px) {
+                font-size: $psizeDesktop;
+            }
+            @if ($linkStatus == true) {
+                & + a {
+                    display: block;
+                    border: 1px solid $linkClr;
+                    padding: 16px 60px;
+                    font-size: 22px;
+                    text-transform: capitalize;
+                    background-color: $linkbg;
+                    color: $linkClr;
+                    width: fit-content;
+                    margin: auto;
+                    transition: var(--main-transition);
+                    position: relative;
+                    z-index: 2;
+                    overflow: hidden;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 200%;
+                        height: 110%;
+                        background-color: $linkAffterBg;
+                        top: 0;
+                        z-index: -1;
+                        transform: translateX(10px);
+                        transition: var(--main-transition);
+                        transform: skewX(-23deg) translateX(-180%);
+                    }
+                    &:hover {
+                        color: $linkHoverClr;
+                        &::after {
+                            transform: skewX(-23deg) translateX(-50%);
+                        }
+                    }
+                    @media (min-width: 991.5px) {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
