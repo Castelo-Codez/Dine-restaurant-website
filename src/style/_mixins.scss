@@ -28,7 +28,7 @@
         font-weight: $h2Font;
         font-size: $h2sizemobile;
         margin: auto;
-        width: 80%;
+        width: 90%;
         @media (min-width: 991.5px) {
             width: 100%;
             margin: 0;
@@ -39,11 +39,15 @@
             &::before {
                 content: "";
                 position: absolute;
-                background-image: url(/public/patterns/pattern-divide.svg);
-                width: 100px;
+                background-image: url(/patterns/pattern-divide.svg);
+                background-position: center;
+                width: 100%;
                 height: 8px;
                 top: -35px;
-                left: 0;
+                display: block;
+                @media (min-width: 991.5px) {
+                    background-position: left;
+                }
                 background-repeat: no-repeat;
             }
         }
@@ -93,5 +97,33 @@
                 }
             }
         }
+    }
+}
+
+@mixin Make-main-section-pattern($dir, $topOrBottom, $prec, $width) {
+    content: "";
+    position: absolute;
+    width: $width;
+    height: 300px;
+    @if ($topOrBottom == top) {
+        top: $prec;
+    } @else {
+        bottom: $prec;
+    }
+    background-color: var(--color-border);
+    @if ($dir == left) {
+        border-top-right-radius: 5rem;
+        left: 0;
+    }
+    @if ($dir == right) {
+        border-top-left-radius: 5rem;
+        right: 0;
+    }
+}
+
+@mixin desktop-h2-p-width($width) {
+    > h2,
+    p {
+        width: $width;
     }
 }
