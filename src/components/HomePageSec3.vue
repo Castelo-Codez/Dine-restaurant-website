@@ -133,9 +133,11 @@ section {
             @media (min-width: 991.5px) {
                 padding-top: var(--main-padding-spac);
             }
-            h2,
-            p {
+            h2 {
                 color: var(--color-white);
+                & + p {
+                    color: var(--color-white);
+                }
             }
         }
         ul {
