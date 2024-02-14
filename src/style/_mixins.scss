@@ -178,3 +178,48 @@
         }
     }
 }
+@mixin make-global-style-sec {
+    position: relative;
+    .container {
+        @include make-flex(false, center);
+        flex-direction: column;
+        row-gap: 5rem;
+        @media (min-width: 991.5px) {
+            flex-direction: row;
+            column-gap: 10rem;
+            > * {
+                flex: 50%;
+            }
+        }
+        position: relative;
+        z-index: 10000;
+
+        > article {
+            @include make-flex(false, center);
+            flex-direction: column;
+            text-align: center;
+            row-gap: 20px;
+            @media (min-width: 991.5px) {
+                text-align: left;
+                @include make-flex(center, none);
+            }
+            @include Make-main-article(
+                2rem,
+                3vw,
+                var(--color-cod-gray),
+                700,
+                true,
+                1.22rem,
+                1.2555rem,
+                var(--color-cod-gray),
+                false
+            );
+            & {
+                @media (min-width: 991.5px) {
+                    text-align: left;
+                    @include desktop-h2-p-width(70%);
+                }
+            }
+        }
+    }
+}
