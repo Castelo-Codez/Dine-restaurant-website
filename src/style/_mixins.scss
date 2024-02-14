@@ -127,3 +127,54 @@
         width: $width;
     }
 }
+
+@mixin make-image-pattern(
+    $image,
+    $width,
+    $height,
+    $topOrBottom,
+    $Yperc,
+    $leftOrRight,
+    $Xperc,
+    $YpercDesktop,
+    $XpercDesktop
+) {
+    & {
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            width: $width;
+            height: $height;
+            background-image: url($image);
+            background-repeat: no-repeat;
+            z-index: 2111;
+            @if ($topOrBottom == top) {
+                top: $Yperc;
+            } @else {
+                bottom: $Yperc;
+            }
+            @if ($leftOrRight == left) {
+                left: $Xperc;
+            } @else {
+                right: $Xperc;
+            }
+            display: none;
+            @media (min-width: 575.5px) {
+                display: block;
+            }
+            @media (min-width: 991.5px) {
+                @if ($topOrBottom == top) {
+                    top: $YpercDesktop;
+                } @else {
+                    bottom: $YpercDesktop;
+                }
+                @if ($leftOrRight == left) {
+                    left: $XpercDesktop;
+                } @else {
+                    right: $XpercDesktop;
+                }
+            }
+        }
+    }
+}
