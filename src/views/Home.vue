@@ -684,6 +684,9 @@ main {
                                         width: 80%;
                                     }
                                 }
+                                &:hover {
+                                    color: var(--color-cod-gray);
+                                }
                             }
                         }
                     }
