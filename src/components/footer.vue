@@ -17,7 +17,7 @@
                 <span aria-label="Phone Number">+00 44 123 4567 </span>
             </li>
             <li role="listitem" aria-label="open times">
-                <ul role="listitem">
+                <ul role="list">
                     <li aria-label="listitem">Open Times</li>
                     <li aria-label="listitem">
                         Mon - Fri: 09:00 AM - 10:00 PM
