@@ -35,6 +35,10 @@ footer {
     padding: 5rem 0px;
     background-color: var(--color-cod-gray);
     color: var(--color-white);
+    img {
+        width: 100px;
+        height: 100%;
+    }
     > ul {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));

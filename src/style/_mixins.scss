@@ -62,11 +62,7 @@
         color: $h2Clr;
         font-weight: $h2Font;
         font-size: $h2sizemobile;
-        margin: auto;
-        width: 90%;
         @media (min-width: 991.5px) {
-            width: 100%;
-            margin: 0;
             font-size: $h2desktop;
         }
         @if ($h2Pattern == true) {
