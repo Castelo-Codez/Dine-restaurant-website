@@ -4,6 +4,7 @@ import HomepageSec1Vue from "../components/HomePageSec1.vue";
 import HomePageSec2Vue from "../components/HomePageSec2.vue";
 import HomePageSec3Vue from "../components/HomePageSec3.vue";
 import HomePageSec4Vue from "../components/HomePageSec4.vue";
+import HomePageSec5Vue from "../components/HomePageSec5.vue";
 </script>
 <template>
     <HomePageHeader />
@@ -12,5 +13,6 @@ import HomePageSec4Vue from "../components/HomePageSec4.vue";
         <HomePageSec2Vue />
         <HomePageSec3Vue />
         <HomePageSec4Vue />
+        <HomePageSec5Vue />
     </main>
 </template>

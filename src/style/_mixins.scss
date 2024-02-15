@@ -7,7 +7,42 @@
         align-items: $y-axis;
     }
 }
-
+@mixin make-main-link($linkbg, $linkAffterBg, $linkClr, $linkHoverClr) {
+    display: block;
+    border: 1px solid $linkClr;
+    padding: 16px 60px;
+    font-size: 22px;
+    text-transform: capitalize;
+    background-color: $linkbg;
+    color: $linkClr;
+    width: fit-content;
+    margin: auto;
+    transition: var(--main-transition);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 200%;
+        height: 110%;
+        background-color: $linkAffterBg;
+        top: 0;
+        z-index: -1;
+        transform: translateX(10px);
+        transition: var(--main-transition);
+        transform: skewX(-23deg) translateX(-180%);
+    }
+    &:hover {
+        color: $linkHoverClr;
+        &::after {
+            transform: skewX(-23deg) translateX(-50%);
+        }
+    }
+    @media (min-width: 991.5px) {
+        margin: 0;
+    }
+}
 @mixin Make-main-article(
     $h2sizemobile: none,
     $h2desktop: none,
@@ -60,40 +95,12 @@
             }
             @if ($linkStatus == true) {
                 & + a {
-                    display: block;
-                    border: 1px solid $linkClr;
-                    padding: 16px 60px;
-                    font-size: 22px;
-                    text-transform: capitalize;
-                    background-color: $linkbg;
-                    color: $linkClr;
-                    width: fit-content;
-                    margin: auto;
-                    transition: var(--main-transition);
-                    position: relative;
-                    z-index: 2;
-                    overflow: hidden;
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        width: 200%;
-                        height: 110%;
-                        background-color: $linkAffterBg;
-                        top: 0;
-                        z-index: -1;
-                        transform: translateX(10px);
-                        transition: var(--main-transition);
-                        transform: skewX(-23deg) translateX(-180%);
-                    }
-                    &:hover {
-                        color: $linkHoverClr;
-                        &::after {
-                            transform: skewX(-23deg) translateX(-50%);
-                        }
-                    }
-                    @media (min-width: 991.5px) {
-                        margin: 0;
-                    }
+                    @include make-main-link(
+                        $linkbg,
+                        $linkAffterBg,
+                        $linkClr,
+                        $linkHoverClr
+                    );
                 }
             }
         }
