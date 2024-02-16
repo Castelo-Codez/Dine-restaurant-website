@@ -1,6 +1,4 @@
-<script setup>
-import {RouterLink} from "vue-router";
-</script>
+
 <template>
     <header role="banner" aria-label="header">
         <div class="wrapper container" aria-label="content wrapper">
@@ -21,28 +19,28 @@ import {RouterLink} from "vue-router";
                     data-aos-anchor-placement="top-bottom"
                     aria-level="2"
                 >
-                    Exquisite dining since 1989
+                    Reservations
                 </h2>
                 <p aria-label="paragraph">
-                    Experience our seasonal menu in beautiful country
-                    surroundings. Eat the freshest produce from the comfort of
-                    our farmhouse.
+                    We can’t wait to host you. If you have any special
+                    requirements please feel free to call on the phone number
+                    below. We’ll be happy to accommodate you.
                 </p>
-                <RouterLink
-                    aria-label="Dine booking page link"
-                    role="link"
-                    to="/booking"
-                >
-                    book a table
-                </RouterLink>
             </article>
         </div>
     </header>
+    <div class="pattern">
+        
+    </div>
 </template>
-<style lang="scss" scoped>
+<style scoped lang="scss">
 @import "../style/mixins";
 header {
-    @include make-header(70vh, true, "home");
+    @include make-header(60vh, false, booking);
+    padding-bottom: 11rem;
+    @media (min-width: 575.5px) {
+        padding-bottom: var(--main-padding);
+    }
     > .container {
         article {
             padding-top: 50px;
@@ -73,5 +71,13 @@ header {
             }
         }
     }
+}
+.pattern {
+    position: relative;
+    height: 300px;
+    &::after {
+        @include Make-main-section-pattern(left, top, 0, 70%);
+    }
+
 }
 </style>

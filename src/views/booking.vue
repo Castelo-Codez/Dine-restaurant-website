@@ -1,2 +1,6 @@
-<script setup></script>
-<template></template>
+<script setup>
+import BookingHeader from "../components/BookingHeader.vue";
+</script>
+<template>
+    <BookingHeader />
+</template>

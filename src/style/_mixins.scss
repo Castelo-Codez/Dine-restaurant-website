@@ -226,3 +226,81 @@
         }
     }
 }
+
+@mixin make-header($min-height, $pattern, $Page) {
+    min-height: $min-height;
+    padding: 14em 0px var(--main-padding);
+    @if ($Page == "home") {
+        background-image: url("/homepage/hero-bg-mobile.webp");
+    } @else {
+        background-image: url("/booking/hero-bg-mobile.webp");
+    }
+    @media (min-width: 575.5px) {
+        @if ($Page == "home") {
+            background-image: url("/homepage/hero-bg-mobile@2x.webp");
+        } @else {
+            background-image: url("/booking/hero-bg-mobile@2x.webp");
+        }
+    }
+    @media (min-width: 767.5px) {
+        @if ($Page == "home") {
+            background-image: url("/homepage/hero-bg-tablet.webp");
+        } @else {
+            background-image: url("/booking/hero-bg-tablet.webp");
+        }
+    }
+    @media (min-width: 991.5px) {
+        @if ($Page == "home") {
+            background-image: url("/homepage/hero-bg-tablet@2x.webp");
+        } @else {
+            background-image: url("/booking/hero-bg-tablet@2x.webp");
+        }
+    }
+    @media (min-width: 991.5px) {
+        @if ($Page == "home") {
+            background-image: url("/homepage/hero-bg-desktop.webp");
+        } @else {
+            background-image: url("/booking/hero-bg-desktop.webp");
+        }
+    }
+    @media (min-width: 1199.5px) {
+        @if ($Page == "home") {
+            background-image: url("/homepage/hero-bg-desktop@2x.webp");
+        } @else {
+            background-image: url("/booking/hero-bg-desktop@2x.webp");
+        }
+    }
+    background-repeat: no-repeat;
+    background-color: var(--color-cod-gray);
+    background-position: center 23%;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    @media (min-width: 991.5px) {
+        padding: var(--main-padding) 0px 13rem;
+        background-position: 100% center;
+        @if ($pattern == true) {
+            &::after {
+                content: "";
+                position: absolute;
+                width: 30%;
+                height: 100%;
+                left: 0;
+                background-color: var(--color-black);
+                top: 0;
+                z-index: -1;
+            }
+        }
+    }
+    > .container {
+        > a {
+            @include make-flex(center, false);
+            @media (min-width: 991.5px) {
+                @include make-flex(flex-start, false);
+            }
+            img {
+                aspect-ratio: auto 100px / 100%;
+            }
+        }
+    }
+}
